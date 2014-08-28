@@ -51,9 +51,9 @@
      * Enable all gestures.
      */
     
-    _panGestureEnabled = YES;
-    _pinchGestureEnabled = YES;
-    _rotationGestureEnabled = YES;
+    _panGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
+    _pinchGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
+    _rotationGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
     
     
     /*
