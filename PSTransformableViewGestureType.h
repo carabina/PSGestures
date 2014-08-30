@@ -46,3 +46,38 @@ static PSTransformableViewGestureType PSTransformableViewGestureTypeFromGestureR
     
     return gestureType;
 }
+
+static NSString * NSStringFromPSTransformableViewGestureType(PSTransformableViewGestureType type)
+{
+    switch(type)
+    {
+        case PSTransformableViewGestureTypeTap:
+        {
+            return @"Tap";
+        }
+        case PSTransformableViewGestureTypeLongPress:
+        {
+            return @"Long Press";
+        }
+        case PSTransformableViewGestureTypePan:
+        {
+            return @"Pan";
+        }
+        case PSTransformableViewGestureTypePinch:
+        {
+            return @"Pinch";
+        }
+        case PSTransformableViewGestureTypeRotation:
+        {
+            return @"Rotation";
+        }
+        case PSTransformableViewGestureTypeUnknown:
+        {
+            return @"Unknown";
+        }
+        default:
+        {
+            return @"";
+        }
+    }
+}

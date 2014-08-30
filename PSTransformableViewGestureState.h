@@ -67,3 +67,34 @@ static PSTransformableViewGestureState PSTransformableViewGestureStateFromGestur
     
     return gestureState;
 }
+
+static NSString * NSStringFromPSTransformableViewGestureState(PSTransformableViewGestureState state)
+{
+    switch(state)
+    {
+        case PSTransformableViewGestureStateBegan:
+        {
+            return @"Began";
+        }
+        case PSTransformableViewGestureStateChanged:
+        {
+            return @"Changed";
+        }
+        case PSTransformableViewGestureStateEnded:
+        {
+            return @"Ended";
+        }
+        case PSTransformableViewGestureStateCancelled:
+        {
+            return @"Cancelled";
+        }
+        case PSTransformableViewGestureStateUnknown:
+        {
+            return @"Unknown";
+        }
+        default:
+        {
+            return @"";
+        }
+    }
+}
