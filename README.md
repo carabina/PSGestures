@@ -35,7 +35,7 @@ Let's disable default implementation for some of gestures. It's possible this wa
 
 Also, you can check whether default gesture behavior is enabled:
 
-    BOOL isEnabled = [customView isGestureWithTypeEnabled:setGestureWithType:PSTransformableViewGestureTypeRotation];
+    BOOL isEnabled = [customView isGestureWithTypeEnabled:PSTransformableViewGestureTypeRotation];
 
 When you want to receive debug information regarding with gestures, or want to implement additional custom behavior, it's possible with *PSTransformableViewDelegate* protocol:
 
