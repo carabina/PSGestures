@@ -14,14 +14,8 @@
 
 @property (assign, nonatomic) id<PSTransformableViewDelegate> delegate;
 
-@property (getter = isTapGestureEnabled) BOOL tapGestureEnabled;
+- (void)setGestureWithType:(PSTransformableViewGestureType)type enabled:(BOOL)enabled;
 
-@property (getter = isLongPressGestureEnabled) BOOL longPressGestureEnabled;
-
-@property (getter = isPanGestureEnabled) BOOL panGestureEnabled;
-
-@property (getter = isPinchGestureEnabled) BOOL pinchGestureEnabled;
-
-@property (getter = isRotationGestureEnabled) BOOL rotationGestureEnabled;
+- (BOOL)isGestureWithTypeEnabled:(PSTransformableViewGestureType)type;
 
 @end

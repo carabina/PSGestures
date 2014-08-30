@@ -9,17 +9,21 @@
 
 @interface PSTransformableView ()
 
+@property BOOL tapGestureEnabled;
+
+@property BOOL longPressGestureEnabled;
+
+@property BOOL panGestureEnabled;
+
+@property BOOL pinchGestureEnabled;
+
+@property BOOL rotationGestureEnabled;
+
 @property float lastRotation;
 
 @end
 
 @implementation PSTransformableView
-
-@synthesize panGestureEnabled = _panGestureEnabled;
-
-@synthesize pinchGestureEnabled = _pinchGestureEnabled;
-
-@synthesize rotationGestureEnabled = _rotationGestureEnabled;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -51,6 +55,8 @@
      * Enable all gestures.
      */
     
+    _tapGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
+    _longPressGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
     _panGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
     _pinchGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
     _rotationGestureEnabled = PSTransformableView_AreGesturesEnabledByDefault;
@@ -118,37 +124,87 @@
 
 #pragma mark Property accessors
 
-- (BOOL)isPanGestureEnabled
-{
-    return _panGestureEnabled;
-}
-
-- (void)setPanGestureEnabled:(BOOL)panEnabled
-{
-    _panGestureEnabled = panEnabled;
-}
-
-- (BOOL)isPinchGestureEnabled
-{
-    return _pinchGestureEnabled;
-}
-
-- (void)setPinchGestureEnabled:(BOOL)pinchEnabled
-{
-    _pinchGestureEnabled = pinchEnabled;
-}
-
-- (BOOL)isRotationGestureEnabled
-{
-    return _rotationGestureEnabled;
-}
-
-- (void)setRotationGestureEnabled:(BOOL)rotationEnabled
-{
-    _rotationGestureEnabled = rotationEnabled;
-}
-
 #pragma mark Public methods
+
+- (void)setGestureWithType:(PSTransformableViewGestureType)type enabled:(BOOL)enabled
+{
+    switch(type)
+    {
+        case PSTransformableViewGestureTypeTap:
+        {
+            _tapGestureEnabled = enabled;
+            
+            break;
+        }
+        case PSTransformableViewGestureTypeLongPress:
+        {
+            _longPressGestureEnabled = enabled;
+            
+            break;
+        }
+        case PSTransformableViewGestureTypePan:
+        {
+            _panGestureEnabled = enabled;
+            
+            break;
+        }
+        case PSTransformableViewGestureTypePinch:
+        {
+            _pinchGestureEnabled = enabled;
+            
+            break;
+        }
+        case PSTransformableViewGestureTypeRotation:
+        {
+            _rotationGestureEnabled = enabled;
+            
+            break;
+        }
+        case PSTransformableViewGestureTypeUnknown:
+        {
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+}
+
+- (BOOL)isGestureWithTypeEnabled:(PSTransformableViewGestureType)type
+{
+    switch(type)
+    {
+        case PSTransformableViewGestureTypeTap:
+        {
+            return _tapGestureEnabled;
+        }
+        case PSTransformableViewGestureTypeLongPress:
+        {
+            return _longPressGestureEnabled;
+        }
+        case PSTransformableViewGestureTypePan:
+        {
+            return _panGestureEnabled;
+        }
+        case PSTransformableViewGestureTypePinch:
+        {
+            return _pinchGestureEnabled;
+        }
+        case PSTransformableViewGestureTypeRotation:
+        {
+            return _rotationGestureEnabled;
+        }
+        case PSTransformableViewGestureTypeUnknown:
+        {
+            return NO;
+        }
+        default:
+        {
+            return NO;
+        }
+    }
+}
 
 #pragma mark Private methods
 
