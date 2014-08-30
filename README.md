@@ -29,10 +29,6 @@ Now you can start the app and pan, zoom and rotate the view. All gestures are ha
 
 Let's disable default implementation for some of gestures. It's possible this way:
 
-    customView.panGestureEnabled = NO;
-    customView.pinchGestureEnabled = NO;
-    customView.rotationGestureEnabled = YES;
-    
     [customView setGestureWithType:PSTransformableViewGestureTypePan enabled:NO];
     [customView setGestureWithType:PSTransformableViewGestureTypePinch enabled:NO];
     [customView setGestureWithType:PSTransformableViewGestureTypeRotation enabled:YES];
