@@ -25,7 +25,7 @@ Create your own *CustomView* class and subclass it from *PSTransformableView*:
 
 Then, create an instance of your *CustomView* class and bring it to some superview.
 
-Now you can start the app and pan, zoom and rotate the view. All gestures are handled automatically by *PSTransformable* view class.
+Now you can start the app and pan, zoom and rotate the view. All gestures are handled automatically by *PSTransformableView* class.
 
 Let's disable default implementation for some of gestures. It's possible this way:
 
