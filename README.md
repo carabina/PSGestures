@@ -1,6 +1,6 @@
-PSGestures is a library for iOS. It's designed to allow developer to handle gestures without any code. Just subclass your view from *PSTransformableView* and get pan, zoom and rotation working!
+PSGestures is a library for iOS. It's designed to allow the developer to handle gestures without any code. Simple subclass your view from *PSTransformableView* to get pan, zoom and rotation working!
 
-But if you want to do more and implement custom behavior for gestures, it’s also possible with this library. Just set a delegate to your transformable view.
+However, if you would like to dive deeper and implement custom gesture behavior, this library makes it possible, too; just set a delegate to your transformable view.
 
 **How To Get Started**
 
@@ -25,7 +25,7 @@ Create your own *CustomView* class and subclass it from *PSTransformableView*:
 
 Then, create an instance of your *CustomView* class and bring it to some superview.
 
-Now you can start the app and pan, zoom and rotate the view. All gestures are handled automatically by *PSTransformableView* class.
+Now you can start the app and pan, zoom, and rotate the view. All gestures are handled automatically by *PSTransformableView* class.
 
 Let's disable default implementation for some of gestures. It's possible this way:
 
@@ -33,11 +33,11 @@ Let's disable default implementation for some of gestures. It's possible this wa
     [customView setGestureWithType:PSTransformableViewGestureTypePinch enabled:NO];
     [customView setGestureWithType:PSTransformableViewGestureTypeRotation enabled:YES];
 
-Also, you can check whether default gesture behavior is enabled:
+Also, you can check whether or not default gesture behavior is enabled:
 
     BOOL isEnabled = [customView isGestureWithTypeEnabled:PSTransformableViewGestureTypeRotation];
 
-When you want to receive debug information regarding with gestures, or want to implement additional custom behavior, it's possible with *PSTransformableViewDelegate* protocol:
+When you would like to receive debug information regarding with gestures, or want to implement additional custom behavior, it's possible with the *PSTransformableViewDelegate* protocol:
 
     #import "PSGestures.h"
     
@@ -57,7 +57,7 @@ Implement the only method of this protocol in your view's *.m* file:
               (unsigned long)points.count);
     }
 
-This method will receive gesture's type, state and array of NSValue objects containing CGPoint for every of touched points. So, the only method tells you as much as all existing UIGestureRecognizer subclasses together. *PSGestures* provides all needed information without needs to write gesture selectors.
+This method will receive gesture's type, state, and array of NSValue objects containing CGPoint for every one of the touched points. So, this method only tells you as much as all existing UIGestureRecognizer subclasses together. *PSGestures* provides all needed information without the need to write gesture selectors.
 
 **License**
 
